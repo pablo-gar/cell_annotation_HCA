@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>get_h1_cell_types</title>
+<title>get_pancreas_cell_types</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13115,76 +13115,26 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;GEOquery&quot;</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="s">&quot;curl&quot;</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="s">&quot;XML&quot;</span><span class="p">)</span>
 
-<span class="n">geo_id</span>  <span class="o">&lt;-</span> <span class="s">&quot;GSE93593&quot;</span>
-<span class="n">sra_study</span> <span class="o">&lt;-</span> <span class="s">&quot;SRP096727&quot;</span> <span class="c1"># TODO getting this ID can be automated by making a request to NCBI&#39;s eutils</span>
-<span class="n">out_file</span> <span class="o">&lt;-</span> <span class="s">&quot;GSE93593_cell_features.tsv&quot;</span> <span class="c1"># Will contain cell characteristics</span>
+<span class="n">geo_id</span>  <span class="o">&lt;-</span> <span class="s">&quot;GSE81547&quot;</span>
+<span class="n">sra_study</span> <span class="o">&lt;-</span> <span class="s">&quot;SRP075496&quot;</span> <span class="c1"># TODO getting this ID can be automated by making a request to NCBI&#39;s eutils</span>
+<span class="n">out_file</span> <span class="o">&lt;-</span> <span class="s">&quot;pancreas_GSE81547_cell_features.tsv&quot;</span> <span class="c1"># Will contain cell characteristics</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Loading required package: Biobase
-Loading required package: BiocGenerics
-Loading required package: parallel
-
-Attaching package: ‘BiocGenerics’
-
-The following objects are masked from ‘package:parallel’:
-
-    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-    clusterExport, clusterMap, parApply, parCapply, parLapply,
-    parLapplyLB, parRapply, parSapply, parSapplyLB
-
-The following objects are masked from ‘package:stats’:
-
-    IQR, mad, sd, var, xtabs
-
-The following objects are masked from ‘package:base’:
-
-    anyDuplicated, append, as.data.frame, basename, cbind, colnames,
-    dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
-    grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
-    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
-    rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
-    union, unique, unsplit, which, which.max, which.min
-
-Welcome to Bioconductor
-
-    Vignettes contain introductory material; view with
-    &#39;browseVignettes()&#39;. To cite Bioconductor, see
-    &#39;citation(&#34;Biobase&#34;)&#39;, and for packages &#39;citation(&#34;pkgname&#34;)&#39;.
-
-Setting options(&#39;download.file.method.GEOquery&#39;=&#39;auto&#39;)
-Setting options(&#39;GEOquery.inmemory.gpl&#39;=FALSE)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Reading geo data</span>
@@ -13206,14 +13156,14 @@ Setting options(&#39;GEOquery.inmemory.gpl&#39;=FALSE)
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>Found 1 file(s)
-GSE93593_series_matrix.txt.gz
+GSE81547_series_matrix.txt.gz
 Parsed with column specification:
 cols(
   .default = col_character()
 )
 See spec(...) for full column specifications.
 File stored at: 
-/var/folders/37/f_hljrvj7291y8ygpf4r54wh0000gq/T//RtmpGZKBen/GPL16791.soft
+/var/folders/37/f_hljrvj7291y8ygpf4r54wh0000gq/T//RtmpkCxlR0/GPL18573.soft
 </pre>
 </div>
 </div>
@@ -13224,7 +13174,7 @@ File stored at:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Shows available metadata</span>
@@ -13259,16 +13209,20 @@ File stored at:
 	<li>'characteristics_ch1'</li>
 	<li>'characteristics_ch1.1'</li>
 	<li>'characteristics_ch1.2'</li>
-	<li>'growth_protocol_ch1'</li>
 	<li>'molecule_ch1'</li>
 	<li>'extract_protocol_ch1'</li>
 	<li>'extract_protocol_ch1.1'</li>
 	<li>'taxid_ch1'</li>
+	<li>'description'</li>
 	<li>'data_processing'</li>
 	<li>'data_processing.1'</li>
 	<li>'data_processing.2'</li>
+	<li>'data_processing.3'</li>
 	<li>'platform_id'</li>
 	<li>'contact_name'</li>
+	<li>'contact_email'</li>
+	<li>'contact_laboratory'</li>
+	<li>'contact_department'</li>
 	<li>'contact_institute'</li>
 	<li>'contact_address'</li>
 	<li>'contact_city'</li>
@@ -13283,9 +13237,9 @@ File stored at:
 	<li>'relation'</li>
 	<li>'relation.1'</li>
 	<li>'supplementary_file_1'</li>
-	<li>'cell type:ch1'</li>
-	<li>'cre line:ch1'</li>
-	<li>'days in culture:ch1'</li>
+	<li>'donor_age:ch1'</li>
+	<li>'gender:ch1'</li>
+	<li>'inferred_cell_type:ch1'</li>
 </ol>
 
 </div>
@@ -13298,16 +13252,15 @@ File stored at:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Getting metadata</span>
-<span class="n">cols</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">,</span> <span class="s">&quot;geo_accession&quot;</span><span class="p">,</span> <span class="s">&quot;cell type:ch1&quot;</span><span class="p">,</span> <span class="s">&quot;cre line:ch1&quot;</span><span class="p">,</span> <span class="s">&quot;days in culture:ch1&quot;</span><span class="p">)</span>
-<span class="n">cols_rename</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;sampleName&quot;</span><span class="p">,</span> <span class="s">&quot;geo&quot;</span><span class="p">,</span> <span class="s">&quot;cellType_mother&quot;</span><span class="p">,</span> <span class="s">&quot;creLine&quot;</span><span class="p">,</span> <span class="s">&quot;days&quot;</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;geo_accession&quot;</span><span class="p">,</span> <span class="s">&quot;donor_age:ch1&quot;</span><span class="p">,</span> <span class="s">&quot;gender:ch1&quot;</span><span class="p">,</span> <span class="s">&quot;inferred_cell_type:ch1&quot;</span><span class="p">)</span>
+<span class="n">cols_rename</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;geo&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="s">&quot;gender&quot;</span><span class="p">,</span> <span class="s">&quot;cellType&quot;</span><span class="p">)</span>
 
 <span class="n">metadata</span> <span class="o">&lt;-</span> <span class="nf">pData</span><span class="p">(</span><span class="nf">phenoData</span><span class="p">(</span><span class="n">gsm[[1]]</span><span class="p">))</span><span class="n">[</span><span class="p">,</span> <span class="n">cols]</span>
 <span class="nf">colnames</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">cols_rename</span>
-<span class="n">metadata</span><span class="o">$</span><span class="n">cellType</span> <span class="o">&lt;-</span> <span class="nf">with</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="n">creLine</span><span class="p">,</span> <span class="s">&quot;_&quot;</span><span class="p">,</span> <span class="n">days</span><span class="p">))</span>
 <span class="nf">head</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
 </pre></div>
 
@@ -13327,18 +13280,18 @@ File stored at:
 
 <div class="output_html rendered_html output_subarea ">
 <table>
-<caption>A data.frame: 6 × 6</caption>
+<caption>A data.frame: 6 × 4</caption>
 <thead>
-	<tr><th></th><th scope=col>sampleName</th><th scope=col>geo</th><th scope=col>cellType_mother</th><th scope=col>creLine</th><th scope=col>days</th><th scope=col>cellType</th></tr>
-	<tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+	<tr><th></th><th scope=col>geo</th><th scope=col>age</th><th scope=col>gender</th><th scope=col>cellType</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>GSM2455567</th><td>D26Dn6A01</td><td>GSM2455567</td><td>cultured embryonic stem cells</td><td>DCX-</td><td>D26</td><td>DCX-_D26</td></tr>
-	<tr><th scope=row>GSM2455568</th><td>D26Dn6A02</td><td>GSM2455568</td><td>cultured embryonic stem cells</td><td>DCX-</td><td>D26</td><td>DCX-_D26</td></tr>
-	<tr><th scope=row>GSM2455569</th><td>D26Dn6A03</td><td>GSM2455569</td><td>cultured embryonic stem cells</td><td>DCX-</td><td>D26</td><td>DCX-_D26</td></tr>
-	<tr><th scope=row>GSM2455570</th><td>D26Dn6A04</td><td>GSM2455570</td><td>cultured embryonic stem cells</td><td>DCX-</td><td>D26</td><td>DCX-_D26</td></tr>
-	<tr><th scope=row>GSM2455571</th><td>D26Dn6A05</td><td>GSM2455571</td><td>cultured embryonic stem cells</td><td>DCX-</td><td>D26</td><td>DCX-_D26</td></tr>
-	<tr><th scope=row>GSM2455572</th><td>D26Dn6A06</td><td>GSM2455572</td><td>cultured embryonic stem cells</td><td>DCX-</td><td>D26</td><td>DCX-_D26</td></tr>
+	<tr><th scope=row>GSM2171880</th><td>GSM2171880</td><td>21</td><td>male</td><td>alpha </td></tr>
+	<tr><th scope=row>GSM2171881</th><td>GSM2171881</td><td>21</td><td>male</td><td>alpha </td></tr>
+	<tr><th scope=row>GSM2171882</th><td>GSM2171882</td><td>21</td><td>male</td><td>acinar</td></tr>
+	<tr><th scope=row>GSM2171883</th><td>GSM2171883</td><td>21</td><td>male</td><td>alpha </td></tr>
+	<tr><th scope=row>GSM2171884</th><td>GSM2171884</td><td>21</td><td>male</td><td>alpha </td></tr>
+	<tr><th scope=row>GSM2171885</th><td>GSM2171885</td><td>21</td><td>male</td><td>alpha </td></tr>
 </tbody>
 </table>
 
@@ -13352,7 +13305,7 @@ File stored at:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Gettting sra run ids, useful for integrating with HCA data from the DCP</span>
@@ -13376,7 +13329,7 @@ File stored at:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Merge sra run ids and sra exp ids into metadata from GEO</span>
@@ -13391,12 +13344,25 @@ File stored at:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Save data</span>
 <span class="n">metadata</span> <span class="o">&lt;-</span> <span class="nf">t</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
 <span class="nf">write.table</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">out_file</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;\t&quot;</span><span class="p">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span> <span class="n">col.names</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span>
 </pre></div>
 
     </div>

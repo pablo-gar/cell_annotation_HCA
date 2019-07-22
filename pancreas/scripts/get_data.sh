@@ -6,12 +6,17 @@ cd ../data
 
     python3 ../../scripts/hca/matrix_service/python/get_HCA_matrix_by_project_title.py "Single cell transcriptome analysis of human pancreas reveals transcriptional signatures of aging and somatic mutation patterns." hca.loom
 
+# hca_sra.loom
+#  loom matrix from HCA with sraIds appended
+    python3 ../../scripts/hca/loom/python/append_sraIds_HCA_matrix.py hca.loom hca_sra.loom
+
+# hca_cellTypes.loom
+#  loom matrix from HCA with sraIds and cell types appended
+    python3 ~/scripts/hca_data_integration/loom/python/append_col_attribute_from_loom.py sra_run cellType insdc_run_accessions paper.loom hca_sra.loom hca_cellTypes.loom
 
 # GSE81547_RAW.tar
 #   original count files from paper
 #   dowload using supplementary file in https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81547
-
-
 
 # GSE81547_cell_features.tsv
 #   tab-separated file with each row containing a vector of metadata, with length being the number of cells
