@@ -1,0 +1,7 @@
+model	correct	mislablled	accuracy
+cellType_predicted_svm_SVC	0	2544	0.0
+cellType_predicted_RandomForest	0	2544	0.0
+cellType_predicted_LogisticRegression	0	2544	0.0
+cellType_predicted_MLPClassifier	0	2544	0.0
+cellType_predicted_KNeighbors	0	2544	0.0
+cellType_predicted_GaussianProcess	0	2544	0.0

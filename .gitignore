@@ -2,3 +2,6 @@ data/
 data/*
 *.DS_Store
 *.Rapp.history
+*__pychache__*
+*.swp
+*.ipynb_checkpoints*

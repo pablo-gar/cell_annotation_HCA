@@ -15,6 +15,7 @@ cd ../data
     python3 ~/scripts/hca_data_integration/loom/python/append_col_attribute_from_loom.py sra_run cellType insdc_run_accessions paper.loom hca_sra.loom hca_cellTypes.loom
 
 # GSE81547_RAW.tar
+
 #   original count files from paper
 #   dowload using supplementary file in https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81547
 
@@ -56,4 +57,54 @@ cd ../data
     # Make loom file
     python3 ../../scripts/hca/loom/python/create_loom_from_matrix_and_cell_labels.py GSE81547_counts.tsv GSE81547_cell_features.tsv paper.loom
 
-        
+
+
+#---------------------
+# Getting data for the other pancreas dataset that is on the HCA
+# Single-Cell Transcriptome Profiling of Human Pancreatic Islets in Health and Type 2 Diabetes Graphical
+
+# pancreas_refseq_rpkms_counts_3514sc.tsv
+# pancreas_refseq_rpkms_3514sc.tsv
+# pancreas_refseq_counts_3514sc.tsv
+    curl https://www.ebi.ac.uk/arrayexpress/files/E-MTAB-5061/E-MTAB-5061.processed.1.zip > E-MTAB-5061.processed.1.zip
+    unzip E-MTAB-5061.processed.1.zip
+    rm E-MTAB-5061.processed.1.zip
+    mv pancreas_refseq_rpkms_counts_3514sc.txt pancreas_refseq_rpkms_counts_3514sc.tsv
+    
+    Rscript ../scripts/wrangle_count_matrices_E-MTAB-5061.R
+
+# E-MTAB-5061.sdrf.txt
+    curl https://www.ebi.ac.uk/arrayexpress/files/E-MTAB-5061/E-MTAB-5061.sdrf.txt > E-MTAB-5061.sdrf.tsv
+
+# pancreas_refseq_rpkms_counts_3514sc_cellTypesCorrected.tsv
+    Rscript ../scripts/R/order_cell_types_E-MTAB-5061.R
+
+# paper_alternative.loom 
+    python3 ../../scripts/hca/loom/python/create_loom_from_matrix_and_cell_labels.py pancreas_refseq_counts_3514sc.tsv pancreas_refseq_rpkms_counts_3514sc_cellTypesCorrected.tsv paper_alternative.loom
+
+# paper_alternative_rpkm.loom
+    python3 ../../scripts/hca/loom/python/create_loom_from_matrix_and_cell_labels.py pancreas_refseq_rpkms_3514sc.tsv pancreas_refseq_rpkms_counts_3514sc_cellTypesCorrected.tsv paper_alternative_rpkms.loom
+
+#---------------------
+# Getting data for yet another pancreas dataset, this is NOT in the HCA
+#Single-cell transcriptomes identify human islet cell signatures and reveal cell-type–specific expression changes in type 2 diabetes
+
+
+# GSE86469_GEO.islet.single.cell.processed.data.RSEM.raw.expected.counts.tsv
+#   original count matrix from paper, values are counts per million
+# GSE86469_GEO.islet.single.cell.processed.data.RSEM.raw.expected.counts.diabetes.tsv
+#   only cells from donors with diabetes
+# GSE86469_GEO.islet.single.cell.processed.data.RSEM.raw.expected.counts.healthy.tsv
+#   only cells from healthy donors
+# GSE86469_cell_features.tsv
+#   cell types and other metadata
+# GSE86469_cell_features_diabetes.tsv
+#   only cells from donors with diabetes
+# GSE86469_cell_features_healthy.tsv
+#   only cells from healthy donors 
+
+    Rscript ../scripts/R/get_pancreas_cell_types_GSE86469.R
+    mv ../scripts/R/*tsv ./
+    
+# paper_alternative_GSE86469.loom 
+    python3 ../../scripts/hca/loom/python/create_loom_from_matrix_and_cell_labels.py GSE86469_GEO.islet.single.cell.processed.data.RSEM.raw.expected.counts.healthy.tsv GSE86469_cell_features_healthy.tsv paper_alternative_GSE86469.loom
