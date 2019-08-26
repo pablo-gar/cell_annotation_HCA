@@ -37,7 +37,7 @@ for(i in 3:nCols)
     metadata[,i] <- sapply(strsplit(as.character(metadata[,i, drop=T]), ": "), function(x) x[[2]])
 
 # Changing the cell type ontology
-correspondance <- setNames(c('unsure', 'beta', 'stellate', 'ductal', 'alpha', 'acinar', 'gamma', 'delta'),
+correspondance <- setNames(c('unsure', 'beta', 'PSC', 'ductal', 'alpha', 'acinar', 'gamma', 'delta'),
                            c('None/Other', 'Beta', 'Stellate', 'Ductal', 'Alpha', 'Acinar', 'Gamma/PP', 'Delta'))
 metadata[,'cellType'] <- correspondance[as.character(metadata[,'cellType'])]
 

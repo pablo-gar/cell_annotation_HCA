@@ -108,3 +108,16 @@ cd ../data
     
 # paper_alternative_GSE86469.loom 
     python3 ../../scripts/hca/loom/python/create_loom_from_matrix_and_cell_labels.py GSE86469_GEO.islet.single.cell.processed.data.RSEM.raw.expected.counts.healthy.tsv GSE86469_cell_features_healthy.tsv paper_alternative_GSE86469.loom
+    
+#---------------------
+# Deciphering Pancreatic Islet b Cell and a Cell Maturation Pathways and Characteristic Features at the Single-Cell Level
+
+# GSE84133_human_counts.tsv
+#   Raw gene counts for all 3 human samples
+# GSE84133_human_cellTypes.tsv
+#   Cell types
+    Rscript ../scripts/R/get_pancreas_cell_types_GSE84133.R
+    mv ../scripts/R/*tsv ./
+    
+# paper_alternative_GSE84133.loom 
+    python3 ../../scripts/hca/loom/python/create_loom_from_matrix_and_cell_labels.py GSE84133_human_counts.tsv GSE84133_human_cellTypes.tsv paper_alternative_GSE84133.loom
