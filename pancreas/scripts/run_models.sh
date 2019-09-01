@@ -8,7 +8,7 @@ python3 $script_path/model_create.py svm_SVC $train_loom $test_loom cellType pap
 
 train_loom="paper_model.h5ad"
 test_loom="hca_model.h5ad"
-for model_name in RandomForest LogisticRegression MLPClassifier KNeighbors GaussianProcess 
+for model_name in RandomForest LogisticRegression MLPClassifier KNeighbors
 do
     python3 $script_path/model_create.py $model_name $train_loom $test_loom cellType paper_model.h5ad hca_model.h5ad
 done
