@@ -1,0 +1,57 @@
+name: sc
+channels:
+  - defaults
+dependencies:
+  - asn1crypto
+  - bzip2
+  - ca-certificates
+  - certifi
+  - cffi
+  - chardet
+  - conda
+  - conda-package-handling
+  - cryptography
+  - idna
+  - libarchive
+  - libedit
+  - libffi
+  - libiconv
+  - libxml2
+  - lz4-c
+  - lzo
+  - ncurses
+  - openssl
+  - pip
+  - pycosat
+  - pycparser
+  - pyopenssl
+  - pysocks
+  - python=3.7.4
+  - python-libarchive-c
+  - readline
+  - requests
+  - ruamel_yaml
+  - setuptools
+  - six
+  - sqlite
+  - tk
+  - tqdm
+  - urllib3
+  - wheel
+  - xz
+  - yaml
+  - zlib
+  - zstd
+  - pip:
+    - anndata
+    - h5py
+    - llvmlite
+    - natsort
+    - numba
+    - numpy
+    - pandas
+    - python-dateutil
+    - pytz
+    - scipy
+    - scanpy
+
