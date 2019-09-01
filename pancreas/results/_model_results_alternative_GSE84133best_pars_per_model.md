@@ -1,18 +1,18 @@
 * KNeighbors
   *  n_neighbors :  2
   *  p :  2
-  *  weights :  uniform
+  *  weights :  distance
 * LogisticRegression
-  *  C :  200
-  *  fit_intercept :  True
+  *  C :  700
+  *  fit_intercept :  False
   *  l1_ratio :  0.5
   *  multi_class :  multinomial
   *  penalty :  elasticnet
   *  solver :  saga
-  *  tol :  0.01
+  *  tol :  1e-07
 * MLPClassifier
   *  activation :  relu
-  *  hidden_layer_sizes :  [500 500 500]
+  *  hidden_layer_sizes :  [500 500]
   *  learning_rate :  adaptive
   *  solver :  adam
 * RandomForest
@@ -24,5 +24,5 @@
   *  n_estimators :  1800
 * svm_SVC
   *  C :  50
-  *  gamma :  3.0789559171473314e-06
+  *  gamma :  0.00017803593647345033
   *  kernel :  rbf

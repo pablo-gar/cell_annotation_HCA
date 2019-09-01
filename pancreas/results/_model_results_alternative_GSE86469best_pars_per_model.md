@@ -1,14 +1,9 @@
-* GaussianProcess
-  *  max_iter_predict :  100
-  *  multi_class :  one_vs_one
-  *  n_restarts_optimizer :  1
-  *  warm_start :  False
 * KNeighbors
-  *  n_neighbors :  200
+  *  n_neighbors :  10
   *  p :  2
   *  weights :  distance
 * LogisticRegression
-  *  C :  1
+  *  C :  50
   *  fit_intercept :  False
   *  l1_ratio :  1.0
   *  multi_class :  multinomial
@@ -17,16 +12,17 @@
   *  tol :  0.001
 * MLPClassifier
   *  activation :  logistic
-  *  hidden_layer_sizes :  500
+  *  hidden_layer_sizes :  1000
   *  learning_rate :  constant
   *  solver :  lbfgs
 * RandomForest
   *  bootstrap :  False
+  *  max_depth :  70
   *  max_features :  sqrt
   *  min_samples_leaf :  1
   *  min_samples_split :  2
-  *  n_estimators :  200
+  *  n_estimators :  800
 * svm_SVC
-  *  C :  500
-  *  gamma :  4.959843346824306e-06
+  *  C :  10
+  *  gamma :  1.5134379235124851e-05
   *  kernel :  rbf
