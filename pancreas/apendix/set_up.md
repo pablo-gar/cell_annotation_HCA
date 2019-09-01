@@ -1,4 +1,4 @@
-# Appendix - Set up and download pancreas datasets
+# Appendix - Set up enviroments and download pancreas datasets
 This is a guide to fully set up all necessary files, scripts and python/R packages from this repository ([https://github.com/pablo-gar/cell_annotation_HCA](https://github.com/pablo-gar/cell_annotation_HCA))
 
 Upon setting up you can proceed with training and applying cell type annotation models for scRNA-seq data as well as reproduce the results obtained for the pancreas dataset
@@ -13,7 +13,7 @@ git clone https://github.com/pablo-gar/cell_annotation_HCA
 ```
 
 ## Set up python and R installations
-*This requres a conda and R>= 3.4 installation*
+*This requres a conda and R>= 3.6 installation*
 
 Install python environment
 
@@ -25,3 +25,14 @@ conda env create -f czi_cell_annotation.yml
 Intsall R packages
 
 ```bash
+sudo Rscript czi_cell_annotation.R
+```
+
+## Download datasets
+First `cd` to the root of the repo and then download the necessary datasets
+
+```bash
+mkdir pancreas/data
+cd pancreas/data
+curl 
+

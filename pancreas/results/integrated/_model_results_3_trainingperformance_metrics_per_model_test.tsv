@@ -1,0 +1,5 @@
+model	correct	mislablled	accuracy
+cellType_predicted_LogisticRegression	1835	709	0.7213050314465409
+cellType_predicted_RandomForest	1999	545	0.7857704402515723
+cellType_predicted_svm_SVC	1959	585	0.7700471698113207
+cellType_predicted_KNeighbors	1855	689	0.7291666666666666

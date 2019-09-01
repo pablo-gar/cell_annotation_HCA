@@ -1,6 +1,6 @@
 # Runs models on data, make sure that you wrangled datasets first
 cd ../data
-mkdir -p ../results/integrated/plots_integration/ 
+mkdir -p ../results/integrated
 
 
 script_path="../../scripts/hca/loom/python"
@@ -21,4 +21,4 @@ do
 done
 
 # Get benchmarking results
-python3 $script_path/model_plot.py $out_h5ad_test cellType ../results/integrated/_model_results_3_training
+python3 $script_path/model_plot2.py $out_h5ad_test cellType ../results/integrated/_model_results_3_training
