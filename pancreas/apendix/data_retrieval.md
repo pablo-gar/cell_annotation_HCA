@@ -1,5 +1,5 @@
 # Appendix - Data wrangling and retrieval
-This is a guide to downlaod all training and test pancreas datasets
+This is a guide to download all training and test pancreas datasets
 
 **Please refer to my final [internship report](https://docs.google.com/document/d/1tpxBt77FsQdK-G5lwYVyPz2CBeBTTi_TNJt99cmH7bA/edit?usp=sharing) for a complete description of the results**
 
@@ -69,7 +69,7 @@ This will create the `hca_cellTypes.loom` that contains the DCP count matrix alo
 
 ## Segerstolpe et al.
 
-Execcute the following in `./pancreas/data` to create `paper_alternative.loom` which will contain the paper's count matrix along with cell types
+Execute the following in `./pancreas/data` to create `paper_alternative.loom` which will contain the paper's count matrix along with cell types
 
 ```bash
 # pancreas_refseq_rpkms_counts_3514sc.tsv
@@ -96,7 +96,7 @@ Execcute the following in `./pancreas/data` to create `paper_alternative.loom` w
 ```
 
 ## Baron et al.
-Execcute the following in `./pancreas/data` to create `paper_alternative_GSE84133.loom` which will contain the paper's count matrix along with cell types
+Execute the following in `./pancreas/data` to create `paper_alternative_GSE84133.loom` which will contain the paper's count matrix along with cell types
 
 ```bash
 
@@ -113,7 +113,7 @@ Execcute the following in `./pancreas/data` to create `paper_alternative_GSE8413
 ```
 
 ## Lawlor et al.
-Execcute the following in `./pancreas/data` to create `paper_alternative_GSE86469.loom` which will contain the paper's count matrix along with cell types
+Execute the following in `./pancreas/data` to create `paper_alternative_GSE86469.loom` which will contain the paper's count matrix along with cell types
 
 ```bash
 
