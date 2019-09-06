@@ -3,6 +3,8 @@ This is a guide to download all training and test pancreas datasets
 
 **Please refer to my final [internship report](https://docs.google.com/document/d/1tpxBt77FsQdK-G5lwYVyPz2CBeBTTi_TNJt99cmH7bA/edit?usp=sharing) for a complete description of the results**
 
+This guide is intended to be followed after the [set up](https://github.com/pablo-gar/cell_annotation_HCA/blob/master/pancreas/apendix/set_up.md)
+
 ## Enge et al. 
 
 ### Author data
